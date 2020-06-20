@@ -1,7 +1,7 @@
 object FormR: TFormR
-  Left = 449
+  Left = 443
   Height = 256
-  Top = 300
+  Top = 41
   Width = 515
   Caption = 'Сопротивление проводника'
   ClientHeight = 236
@@ -8847,18 +8847,18 @@ object FormR: TFormR
     Text = '3'
   end
   object ButtonRez: TButton
-    Left = 64
+    Left = 72
     Height = 33
     Top = 160
-    Width = 91
+    Width = 80
     Caption = 'Расчёт'
     OnClick = ButtonRezClick
     TabOrder = 3
   end
   object LabelRez: TLabel
-    Left = 176
+    Left = 168
     Height = 17
-    Top = 16
+    Top = 24
     Width = 65
     Caption = 'Результат:'
     Font.CharSet = RUSSIAN_CHARSET
@@ -8921,8 +8921,8 @@ object FormR: TFormR
   end
   object Tab: TStringGrid
     Left = 168
-    Height = 27
-    Top = 43
+    Height = 152
+    Top = 40
     Width = 324
     RowCount = 1
     TabOrder = 4

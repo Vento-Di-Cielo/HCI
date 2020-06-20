@@ -96,7 +96,7 @@ begin
   a.R:=s;
   calcarray[m]:=a;
   Tab.RowCount:=Tab.rowcount+1;
-  Tab.height:=Tab.rowcount*24;
+  tab.cells[0,m]:=FloatToStr(m);
   tab.cells[1,m]:=FloatTostr(calcarray[m].R1);
   tab.cells[2,m]:=FloatToStr(calcarray[m].R2);
   tab.cells[3,m]:=FloatToStr(calcarray[m].R3);
@@ -117,17 +117,15 @@ end;
 procedure TFormR.MenuOpenClick(Sender: TObject);
 var
    NameFile:string;
-   n:integer;
 begin
   If OpenDialog.Execute then begin
      NameFile:=OpenDialog.FileName;
      assignfile(f,NameFile);
      reset(f);
-     n:=StrToInt(inputbox('Порядковый номер','Введите порядковый номер параметров',''));
-     Read_Param(calcarray,f);
-     EditR1.text:=FloatToStr(calcarray[n].R1);
-     EditR2.text:=FloatToStr(calcarray[n].R2);
-     EditR3.text:=FloatToStr(calcarray[n].R3);
+     Read_Param(a,f);
+     EditR1.text:=FloatToStr(a.R1);
+     EditR2.text:=FloatToStr(a.R2);
+     EditR3.text:=FloatToStr(a.R3);
      closefile(f);
   end;
 end;
@@ -141,7 +139,7 @@ begin
      AssignFile(f,NameFile);
      Rewrite(f);
      If SaveDialog.FileName = '' then showmessage('Название не введено, попробуйте снова');
-     Save_Param(calcarray,m,f);
+     Save_Param(a,f);
      closeFile(f);
   end;
 end;
