@@ -12,8 +12,8 @@ type
 
   { TFormNazv }
 
-  TFormNazv = class(TForm)//
-    Button1: TButton;
+  TFormNazv = class(TForm)//Класс формы
+    Button1: TButton; //Поля классо начало
     EditX1: TEdit;
     EditY1: TEdit;
     EditX2: TEdit;
@@ -36,14 +36,14 @@ type
     MenuItemFile: TMenuItem;
     OpenFile: TOpenDialog;
     SaveFile: TSaveDialog;
-    SaveOtchet: TSaveDialog;
-    procedure Button1Click(Sender: TObject);
+    SaveOtchet: TSaveDialog; //Поля класса конец
+    procedure Button1Click(Sender: TObject); //Методы класса начало, а также их объявление
     procedure MenuItemExitClick(Sender: TObject);
     procedure MenuItemOpenClick(Sender: TObject);
     procedure MenuItemSaveClick(Sender: TObject);
     procedure MenuItemSaveOtchetClick(Sender: TObject);
     procedure MenuItemSpravkaClick(Sender: TObject);
-    procedure DataFromForm();
+    procedure DataFromForm(); //Методы класса конец
   private
 
   public
@@ -51,7 +51,7 @@ type
   end;
 
 var
-  FormNazv: TFormNazv;
+  FormNazv: TFormNazv;//Объект класса
   x1,y1,x2,y2:real;
 
 implementation
@@ -60,7 +60,7 @@ implementation
 
 { TFormNazv }
 
-procedure TFormNazv.DataFromForm();
+procedure TFormNazv.DataFromForm();  //Представления методов в разделе implementation. Имя класса указывается.
 begin
 
   if TryStrToFloat(EditX1.text,x1) = false then

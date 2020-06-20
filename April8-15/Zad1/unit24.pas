@@ -95,40 +95,34 @@ end;
 
 procedure TFormNazv.MenuItemOpenClick(Sender: TObject);
 var
-  s,s1,s2,s3,NameFile:string;
-f:text;
+  NameFile:string;
+  f:text;
 begin
+
 If OpenFile.Execute then begin
    NameFile:=OpenFile.FileName;
    assignfile(f,NameFile);
    reset(f);
-   s:='';
-   s1:='';
-   s2:='';
-   s3:='';
-   read_Param(s,s1,s2,s3,f);
-   EditX1.text:=s;
-   EditY1.text:=s1;
-   EditX2.text:=s2;
-   EditY2.text:=s3;
+   read_Param(x1,y1,x2,y2,f);
+   EditX1.text:=FloatToStr(x1);
+   EditY1.text:=FloatToStr(y1);
+   EditX2.text:=FloatToStr(x2);
+   EditY2.text:=FloatToStr(y2);
    closefile(f);
 end;
 end;
 
 procedure TFormNazv.MenuItemSaveClick(Sender: TObject);
-var NameFile,s,s1,s2,s3: string;
+var NameFile: string;
 f:text;
 begin
+datafromform();
 if SaveFile.Execute then begin
 NameFile := SaveFile.FileName;
 AssignFile(f,NameFile);
 Rewrite(f);
 If SaveFile.FileName = '' then showmessage('Название не введено, попробуйте снова');
-s:=EditX1.text;
-s1:=EditY1.text;
-s2:=EditX2.text;
-s3:=EditY2.text;
-Save_Param(s,s1,s2,s3,f);
+Save_Param(x1,y1,x2,y2,f);
 OpenFile.FileName:=NameFile;
 closeFile(f);
 end;
